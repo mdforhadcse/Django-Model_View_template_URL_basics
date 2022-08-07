@@ -42,6 +42,12 @@
         path("index/", views.index, name='index'),
     ]
 
-আমরা ব্রাউজারে ওয়েবসাইট/index লিখলেই "Hello World" দেখতে পারব। আমি যেহেতু লোকাল সার্ভারে কাজ করছি তাই আমি http://127.0.0.1:8000/index/ টাইপ করলে "Hello World" দেখব। 
+আমরা ব্রাউজারে ওয়েবসাইট/index লিখলেই "Hello World" দেখতে পারব। আমি যেহেতু লোকাল সার্ভারে কাজ করছি তাই আমি http://127.0.0.1:8000/index/ টাইপ করলে "Hello World" দেখব।
 
-![](https://github.com/mdforhadcse/Django-mayBeMyGameChanger/blob/main/readme_images/Screenshot%202022-08-07%20at%2010.29.48%20AM.png 'ব্রাউজারে "Hello World" দেখ')
+![](https://github.com/mdforhadcse/Django-mayBeMyGameChanger/blob/main/readme_images/Screenshot%202022-08-07%20at%2010.29.48%20AM.png "'ব্রাউজারে &quot;Hello World&quot; দেখ'")
+
+<br><br>
+
+এখন আমরা দেখছি শুধু মাত্র মেইন প্রোজেক্ট ফোল্ডারে urls.py ফাইল আছে। অনেক বড় প্রোজেক্ট এ একটা মাত্র urls.py অনেক বড় ম্যাসাকার হয়ে যাবে।
+তার জন্য আমরা প্রতিটা অ্যাপ এর আন্ডারে urls.py লিখব।
+
