@@ -43,4 +43,5 @@
     ]
 
 আমরা ব্রাউজারে ওয়েবসাইট/index লিখলেই "Hello World" দেখতে পারব। আমি যেহেতু লোকাল সার্ভারে কাজ করছি তাই আমি http://127.0.0.1:8000/index/ টাইপ করলে "Hello World" দেখব। 
+
 ![](https://github.com/mdforhadcse/Django-mayBeMyGameChanger/blob/main/readme_images/Screenshot%202022-08-07%20at%2010.29.48%20AM.png 'ব্রাউজারে "Hello World" দেখ')
