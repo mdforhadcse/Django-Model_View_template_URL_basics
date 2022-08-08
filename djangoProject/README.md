@@ -51,3 +51,49 @@
 এখন আমরা দেখছি শুধু মাত্র মেইন প্রোজেক্ট ফোল্ডারে urls.py ফাইল আছে। অনেক বড় প্রোজেক্ট এ একটা মাত্র urls.py অনেক বড় ম্যাসাকার হয়ে যাবে।
 তার জন্য আমরা প্রতিটা অ্যাপ এর আন্ডারে urls.py লিখব।
 
+### Django Models
+জ্যাঙ্গু প্রোজেক্টে ডাটাবেইজ সম্পর্কিত সকল কাজ models.py এর মধ্যে করতে হয়। এটি প্রত্যেকটা অ্যাপের মধ্যেই থাকে।
+নিচের কোডের মাধ্যমে ডাটাবেইজে Musician ও Album নামে ২ টা টেবিল তৈরি করি। টেবিল তৈরি করার জন্য শুধু ক্লাস তৈরি করব এবং models.Model কে ইনহেরিট করব।
+
+    class Musician(models.Model):
+        first_name = models.CharField(max_length=50)
+        last_name = models.CharField(max_length=50)
+        instrument = models.CharField(max_length=100)
+        
+        
+    class Album(models.Model):
+        artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
+        name = models.CharField(max_length=100)
+        release_date = models.DateField()
+        numbers_stars = models.IntegerField()
+
+
+এখানে বলে রাখা ভাল যে কোন টেবিলেই প্রাইমারি কি ডিক্লার করা হয় নি। জ্যাঙ্গুর একটা বিল্ট সুবিধা হল অটো প্রাইমারি কি ডিক্লার হয়ে যায়।
+
+    id = models.AutoField(primary_key=True)
+
+এই কোডটুকু জ্যাঙ্গু নিজেই করে ফেলে।
+<br>
+ডাটাবেইজ গুলো একচুয়ালি কাজ করানোর জন্য জন্য টার্মিনাল ওপেন করে কমান্ড রান করতে হবে
+
+    python manage.py migrate
+অ্যাপকে কানেক্ট করলাম
+
+    python manage.py makemigrations first_app
+তারপর আবার 
+
+    python manage.py migrate
+
+
+model/database এ কোন চেঞ্জ হলে এই তিনটি কোড আবার চালাতে হবে। 
+
+<br>
+টেবিল তৈরি হল। এবার ডাটাবেইজে ডাটা এন্ট্রি করার পালা। 
+আমরা এডমিন প্যানেল থেকে ডাটা এন্ট্রি করার জন্য first_app এর মধ্যে admin.py এর এর মধ্যে নিচের কোড লেখি
+
+    admin.site.register(Musician)
+    admin.site.register(Album)
+
+এবার আমরা অ্যাডমিন প্যানেল তৈরি করার জন্য সুপার ইউজার তৈরি করব টার্মিনাল থেকেঃ
+
+    python manage.py createsuperuser
