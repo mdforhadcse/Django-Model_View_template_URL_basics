@@ -24,5 +24,5 @@ def form(request):
         'test_form': new_form,
         'heading': 'The form is created by Django Forms'
     }
-    return 
+    return render(request, 'first_app/form.html', context=dic)
 # Create your views here.
